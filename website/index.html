@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="aplikasi Kotak Amal Pintar V.1.0 By Ahnaf Samih" />
+    <meta name="author" content="Ahnaf Samih  |  FarSyaFad Tech" />
+
+    <title>Aplikasi Kotak Amal Pintar V.1.0 | By Ahnaf Samih</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="image/logo-small.png" type="image/x-icon" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+    <div class="loading" id="loading">
+        <img src="image/logo.png" alt="Logo Aplikasi Kami" />
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="bg-header"></div>
+            <div class="bg-info">
+                <p class="date" id="date">hari, - -- ----</p>
+                <h2 class="clock" id="clock">--:--:--</h2>
+            </div>
+
+            <div class="card-header">
+                <div class="card-info">
+                    <div class="card-saldo">
+                        <p>Saldo Hari Ini :</p>
+                        <h2>
+                            Rp<span id="uang-today">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            </span>
+                        </h2>
+                    </div>
+                    <div class="card-failed">
+                        <p>Tidak Valid :</p>
+                        <h2>
+                            <span id="failed-today"><span class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true"></span></span>x
+                        </h2>
+                    </div>
+                </div>
+                <p class="last-update">
+                    Terakhir Di Update :
+                    <span id="last-update"><span class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="container-seven">
+                <div class="seven-header">
+                    <i class="bi bi-calendar"></i><span>Statistik 7 Hari Terakhir</span>
+                </div>
+
+                <div class="seven-info">
+                    <div class="seven-uang">
+                        <i class="bi bi-wallet2"></i>
+                        <span>Rp<span class="uang" id="uang-mingguan"><span class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true"></span></span></span>
+                    </div>
+                    <div class="seven-false">
+                        <i class="bi bi-database-fill-exclamation"></i>
+                        <span><span class="failed" id="failed-mingguan"><span class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true"></span></span>X</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-seven">
+                <div class="seven-header">
+                    <i class="bi bi-calendar"></i><span>Statistik 30 Hari Terakhir</span>
+                </div>
+
+                <div class="seven-info">
+                    <div class="seven-uang">
+                        <i class="bi bi-wallet2"></i>
+                        <span>Rp<span class="uang" id="uang-bulanan"><span class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true"></span></span></span>
+                    </div>
+                    <div class="seven-false">
+                        <i class="bi bi-database-fill-exclamation"></i>
+                        <span><span class="failed" id="failed-bulanan"><span class="spinner-border spinner-border-sm"
+                                    role="status" aria-hidden="true"></span></span>X</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-semua">
+                <div class="semua-header">
+                    <i class="bi bi-clipboard-data"></i><span>Semua Riwayat Pemasukan</span>
+                </div>
+                <div class="semua-info">
+                    <table id="data-semua">
+                    </table>
+                </div>
+            </div>
+
+            <div class="btn-other">
+                <button class="btn-export" onclick="exportData()">
+                    <i class="bi bi-cloud-arrow-down"></i><span>Export Semua Data</span>
+                </button>
+                <button class="btn-lihat" onclick="lihatData()">
+                    <i class="bi bi-graph-up"></i><span>Lihat Data</span>
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <img src="image/logo.png" alt="Logo Aplikasi Kami" />
+            <p>2024 All Right Reserved | Powered By FarSyaFad Tech</p>
+        </footer>
+    </div>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("uang-today").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("failed-today").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("uang-mingguan").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("failed-mingguan").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("uang-bulanan").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        var url =
+            "YOUR-APP-SCRIPT-LINK";
+        fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+                document.getElementById("failed-bulanan").textContent = data;
+            })
+            .catch((error) => console.error("Error:", error));
+    </script>
+    <script>
+        fetch('YOUR-APP-SCRIPT-LINK')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('data-semua').innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="js/last-update.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/link.js"></script>
+</body>
+
+</html>

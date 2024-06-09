@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+body .loading {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  background-color: #eef7ff;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+body .loading.fade-out {
+  opacity: 0;
+}
+body .loading img {
+  width: 150px;
+  height: 37.5px;
+  aspect-ratio: 16/9;
+}
+body .container {
+  width: 100%;
+  height: 100%;
+  background-color: #eef7ff;
+  max-width: 550px !important;
+  overflow: hidden !important;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+body .container .header-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+body .container .header-container .bg-header {
+  width: calc(100% + 50px);
+  height: calc(100% + 300px);
+  border-radius: 50%;
+  position: absolute;
+  top: -180px;
+  left: -25px;
+  background-color: #7ab2b2;
+  z-index: -1;
+}
+body .container .header-container .bg-info {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  background-color: transparent !important;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 18px;
+}
+body .container .header-container .bg-info p {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+body .container .header-container .bg-info h2 {
+  font-size: 45px;
+  font-family: "JetBrains Mono", monospace;
+}
+body .container .header-container .card-header {
+  position: absolute;
+  width: 85%;
+  border-radius: 12px;
+  background-color: #4d869c;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  left: 50%;
+  top: 185px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+body .container .header-container .card-header .card-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 8px;
+}
+body .container .header-container .card-header .card-info .card-saldo p {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  font-size: 13px !important;
+}
+body .container .header-container .card-header .card-info .card-saldo h2 {
+  font-size: 12px;
+}
+body .container .header-container .card-header .card-info .card-saldo h2 span {
+  font-size: 32px;
+}
+body .container .header-container .card-header .card-info .card-failed p {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  font-size: 13px !important;
+  text-align: center;
+}
+body .container .header-container .card-header .card-info .card-failed h2 {
+  font-size: 22px;
+  text-align: center;
+}
+body .container .header-container .card-header .card-info .card-failed h2 span {
+  font-size: 28px;
+}
+body .container .header-container .card-header .last-update {
+  font-size: 11.5px;
+  margin-bottom: 0 !important;
+  text-align: center;
+}
+body .container .header-container .card-header .last-update span {
+  scale: 1.01;
+}
+body .container .card-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 185px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+body .container .card-container .container-seven {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+body .container .card-container .container-seven .seven-header {
+  width: 100%;
+  height: 45px;
+  background-color: #43766c;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.75px;
+}
+body .container .card-container .container-seven .seven-header .bi-calendar {
+  font-size: 16px;
+}
+body .container .card-container .container-seven .seven-info {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: #4d869c;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+body .container .card-container .container-seven .seven-info .seven-uang {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+body .container .card-container .container-seven .seven-info .seven-uang .bi-wallet2 {
+  font-size: 18px;
+}
+body .container .card-container .container-seven .seven-info .seven-uang span .uang {
+  font-size: 18px;
+}
+body .container .card-container .container-seven .seven-info .seven-false {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+body .container .card-container .container-seven .seven-info .seven-false .bi-database-fill-exclamation {
+  font-size: 18px;
+}
+body .container .card-container .container-seven .seven-info .seven-false span {
+  font-size: 11px;
+}
+body .container .card-container .container-seven .seven-info .seven-false span .failed {
+  font-size: 18px;
+}
+body .container .card-container .container-semua {
+  position: relative;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+body .container .card-container .container-semua .semua-header {
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  background-color: #47a992;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.75px;
+}
+body .container .card-container .container-semua .semua-header .bi-clipboard-data {
+  font-size: 18px;
+}
+body .container .card-container .container-semua .semua-info {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-height: 300px;
+  background-color: #d1e4df;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  padding: 52px 8px 8px 8px;
+  color: black;
+  overflow-y: auto;
+}
+body .container .card-container .container-semua .semua-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+body .container .card-container .container-semua .semua-info th,
+body .container .card-container .container-semua .semua-info td {
+  padding: 5px;
+  text-align: center;
+  font-size: 13.5px;
+  letter-spacing: 1.075px;
+  white-space: nowrap;
+}
+body .container .card-container .container-semua .semua-info thead {
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
+}
+body .container .card-container .btn-other {
+  width: 87.5%;
+  display: flex;
+  justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .container .card-container .btn-other button {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  height: 35px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 1.35px;
+  color: white;
+  background-color: #579bb1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+}
+body .container .card-container .btn-other .btn-export {
+  width: 57.5%;
+  transition: 0.35s;
+}
+body .container .card-container .btn-other .btn-export:hover {
+  scale: 1.075;
+  cursor: pointer;
+}
+body .container .card-container .btn-other .btn-lihat {
+  width: 37.5%;
+  transition: 0.35s;
+}
+body .container .card-container .btn-other .btn-lihat:hover {
+  scale: 1.15;
+  scale: 1.075;
+  cursor: pointer;
+}
+body .container footer {
+  width: 100%;
+  text-align: center;
+  padding: 60px 6px 6px 6px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+body .container footer img {
+  width: 150px;
+  height: 37.5px;
+  aspect-ratio: 16/9;
+}
+body .container footer p {
+  font-size: 10.5px;
+  font-weight: normal;
+  letter-spacing: 0.75px;
+  white-space: nowrap;
+  font-family: "JetBrains Mono", monospace;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,392 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$backgroud-main: #eef7ff;
+$backgroud-header-rounded: #7ab2b2;
+$backgroud-card-main: #4d869c;
+$jetbrains: "JetBrains Mono", monospace;
+$poppins: "Poppins", sans-serif;
+$fs-default: 16px;
+$bg-card-color-card-container: #43766c;
+$color-green-card-and-last: #47a992;
+
+@mixin full-width {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  @include full-width;
+  position: relative;
+
+  .loading {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    background-color: #eef7ff;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+
+    &.fade-out {
+      opacity: 0;
+    }
+
+    img {
+      width: 150px;
+      height: 37.5px;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .container {
+    @include full-width;
+    // margin: 0 auto;
+    background-color: $backgroud-main;
+    max-width: 550px !important;
+    overflow: hidden !important;
+    font-size: $fs-default;
+    font-family: $poppins;
+
+    .header-container {
+      @include full-width;
+      position: relative;
+      z-index: 5;
+
+      .bg-header {
+        width: calc(100% + 50px);
+        height: calc(100% + 300px);
+        border-radius: 50%;
+        position: absolute;
+        top: -180px;
+        left: -25px;
+        background-color: $backgroud-header-rounded;
+        z-index: -1;
+      }
+
+      .bg-info {
+        @include full-width;
+        z-index: 1;
+        position: relative;
+        text-align: center;
+        background-color: transparent !important;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        margin-top: 18px;
+
+        p {
+          font-size: $fs-default;
+          font-family: $poppins;
+        }
+
+        h2 {
+          font-size: 45px;
+          font-family: $jetbrains;
+        }
+      }
+
+      .card-header {
+        position: absolute;
+        width: 85%;
+        border-radius: 12px;
+        background-color: $backgroud-card-main;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+        color: white;
+        font-family: $poppins;
+        left: 50%;
+        top: 185px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+
+        .card-info {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          gap: 8px;
+          padding: 8px;
+
+          .card-saldo {
+            p {
+              margin-top: 8px !important;
+              margin-bottom: 8px !important;
+              font-size: 13px !important;
+            }
+
+            h2 {
+              font-size: 12px;
+              span { 
+                font-size: 32px;
+              }
+            }
+          }
+
+          .card-failed {
+            p {
+              margin-top: 8px !important;
+              margin-bottom: 8px !important;
+              font-size: 13px !important;
+              text-align: center;
+            }
+            h2 {
+              font-size: 22px;
+              text-align: center;
+
+              span {
+                font-size: 28px;
+              }
+            }
+          }
+        }
+
+        .last-update {
+          font-size: 11.5px;
+          margin-bottom: 0 !important;
+          text-align: center;
+
+          span {
+            scale: 1.01;
+          }
+        }
+      } //card-header
+    } //header-container
+
+    .card-container {
+      @include full-width;
+      margin-top: 185px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      color: white;
+      font-family: $poppins;
+
+      .container-seven {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        flex-wrap: wrap;
+        .seven-header {
+          width: 100%;
+          height: 45px;
+          background-color: $bg-card-color-card-container;
+          border-radius: 8px;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1.75px;
+
+          .bi-calendar {
+            font-size: 16px;
+          }
+        }
+
+        .seven-info {
+          width: 100%;
+          height: auto;
+          min-height: 50px;
+          background-color: $backgroud-card-main;
+          border-radius: 8px;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+          padding: 5px 8px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: center;
+          font-size: calc($fs-default - 1.5px);
+          font-weight: 600;
+          letter-spacing: 1.5px;
+
+          .seven-uang {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+
+            .bi-wallet2 {
+              font-size: 18px;
+            }
+
+            span .uang {
+              font-size: 18px;
+            }
+          }
+
+          .seven-false {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+
+            .bi-database-fill-exclamation {
+              font-size: 18px;
+            }
+
+            span {
+              font-size: 11px;
+
+              .failed {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      } //container-seven
+
+      .container-semua {
+        position: relative;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .semua-header {
+          position: absolute;
+          width: 100%;
+          height: 45px;
+          background-color: $color-green-card-and-last;
+          border-radius: 8px;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1.75px;
+
+          .bi-clipboard-data {
+            font-size: 18px;
+          }
+        }
+
+        .semua-info {
+          width: 100%;
+          height: auto;
+          min-height: 200px;
+          max-height: 300px;
+          background-color: #d1e4df;
+          border-radius: 8px;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+          padding: 52px 8px 8px 8px;
+          color: black;
+          overflow-y: auto;
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+
+          th,
+          td {
+            padding: 5px;
+            text-align: center;
+            font-size: 13.5px;
+            letter-spacing: 1.075px;
+            white-space: nowrap;
+          }
+
+          thead {
+            background-color: transparent;
+            color: black;
+            font-size: 16px;
+          }
+
+          //   tbody tr:nth-of-type(even) {
+          //     background-color: #f3f3f3;
+          //   }
+        }
+      } //container-semua
+
+      .btn-other {
+        width: 87.5%;
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+
+        button {
+          border: none;
+          border-radius: 8px;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+          height: 35px;
+          font-size: 13.5px;
+          font-weight: 600;
+          letter-spacing: 1.35px;
+          color: white;
+          background-color: #579bb1;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 8px;
+        }
+
+        .btn-export {
+          width: 57.5%;
+          transition: 0.35s;
+
+          &:hover {
+            scale: 1.075;
+            cursor: pointer;
+          }
+        }
+
+        .btn-lihat {
+          width: 37.5%;
+          transition: 0.35s;
+
+          &:hover {
+            scale: 1.15;
+            scale: 1.075;
+            cursor: pointer;
+          }
+        }
+      }
+    } //card-container
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 60px 6px 6px 6px;
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 150px;
+        height: 37.5px;
+        aspect-ratio: 16/9;
+      }
+
+      p {
+        font-size: 10.5px;
+        font-weight: normal;
+        letter-spacing: 0.75px;
+        white-space: nowrap;
+        font-family: $jetbrains;
+      }
+    }
+  } //container
+} //body
