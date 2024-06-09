@@ -88,7 +88,7 @@ void proses()
     const char *host = "script.google.com";
     const int httpsPort = 443;
 
-    String url = "/macros/s/AKfycbwIDv-xaH1mlq1XinHhlVLbiWaZ3WtWIgdIWLd0qxWVzUYvR-wssykmXi1-Q9dRUlK3/exec";
+    String url = "YOUR-APP-SCRIPT-LINK";
     url += "?value=" + String(uang) + "&status=" + (status ? "true" : "false");
 
     Serial.println("Menghubungkan Ke Server Database ...");
@@ -159,11 +159,10 @@ void loop()
     while (WiFi.status() != WL_CONNECTED && attempts < 5)
     {
       WiFi.begin(ssid, password);
-      delay(5000); // Delay tambahan setelah memulai koneksi WiFi
+      delay(5000); 
       attempts++;
     }
 
-    // Jika berhasil terhubung, tampilkan pesan dan lanjutkan
     if (WiFi.status() == WL_CONNECTED)
     {
       lcd.clear();
