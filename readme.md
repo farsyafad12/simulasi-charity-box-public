@@ -1,7 +1,10 @@
-<h1 style="color:blue">Simulasi Kotak Amal Pintar V.1</h1>
+<h1>Simulasi Kotak Amal Pintar V.1</h1>
+<hr/>
 <h5>Presentasi Penampilan Project Wisuda Akbar SIT Gema Nurani</h5>
-
-<p>Alat Dan Bahan Yang Dibutuhkan :</p>
+<img src="image/img-thumb.jpg">
+<p>Tanggal Pelaksanaan : <b>8 Juni 2024</b></p>
+<hr/>
+<h4>Alat Dan Bahan Yang Dibutuhkan :</h4>
 <ul>
     <li>1x Mikrocontroller ESP8266 WIFI</li>
     <li>2x Breadboard 830P</li>
@@ -13,8 +16,8 @@
     <li>Powerbank</li>
     <li>Papan Akrikik Secukupnya</li>
 </ul>
-
-<p>Kontributor :</p>
+<hr/>
+<h4>Kontributor :</h4>
 <ul>
     <li>Ahnaf Samih [ Pemimpin Project & Ide ]</li>
     <li>Muhammad Nashih Picarima</li>
